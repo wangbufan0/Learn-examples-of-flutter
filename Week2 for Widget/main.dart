@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week2/week1/button_route.dart';
-import 'package:flutter_week2/week1/image_route.dart';
-import 'package:flutter_week2/week1/text_route.dart';
+import 'package:flutter_week2/day1/button_route.dart';
+import 'package:flutter_week2/day1/image_route.dart';
+import 'package:flutter_week2/day1/text_route.dart';
+import 'package:flutter_week2/day2/check.dart';
+import 'package:flutter_week2/day2/form.dart';
+import 'package:flutter_week2/day2/text_edit.dart';
+import 'package:flutter_week2/day3/column.dart';
+import 'package:flutter_week2/day3/progress.dart';
+import 'package:flutter_week2/day3/row.dart';
+import 'package:flutter_week2/day4/Stack.dart';
+import 'package:flutter_week2/day4/align.dart';
+import 'package:flutter_week2/day4/flex.dart';
+import 'package:flutter_week2/day4/wrap.dart';
 
 void main() => runApp(MyApp());
 
@@ -68,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: Wrap(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -83,7 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          direction: Axis.horizontal,
+          spacing: 10,
+          runSpacing: 8,
           children: <Widget>[
             RaisedButton(
               child: Text('Text'),
@@ -98,7 +110,47 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text('Image'),
               onPressed: ()=>ImageRoute.launch(context),
-            )
+            ),
+            RaisedButton(
+              child: Text('Check'),
+              onPressed: ()=>CheckRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('TextEdit'),
+              onPressed: ()=>TextEditRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Form'),
+              onPressed: ()=>FormRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Progress'),
+              onPressed: ()=>ProgressRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Row'),
+              onPressed: ()=>RowRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Column'),
+              onPressed: ()=>ColumnRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Flex'),
+              onPressed: ()=>FlexRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('wrap'),
+              onPressed: ()=>WrapRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('stack'),
+              onPressed: ()=>StackRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('align'),
+              onPressed: ()=>AlignRoute.launch(context),
+            ),
           ],
         ),
       ),
