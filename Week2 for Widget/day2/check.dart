@@ -50,7 +50,8 @@ class _CheckRouteState extends State<CheckRoute>{
                 _checkboxSelected=value;
               });
             },
-          )
+          ),
+
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week2/day1/button_route.dart';
-import 'package:flutter_week2/day1/image_route.dart';
-import 'package:flutter_week2/day1/text_route.dart';
+import 'package:flutter_week2/day1/button.dart';
+import 'package:flutter_week2/day1/image.dart';
+import 'package:flutter_week2/day1/text.dart';
 import 'package:flutter_week2/day2/check.dart';
 import 'package:flutter_week2/day2/form.dart';
 import 'package:flutter_week2/day2/text_edit.dart';
@@ -12,6 +12,9 @@ import 'package:flutter_week2/day4/Stack.dart';
 import 'package:flutter_week2/day4/align.dart';
 import 'package:flutter_week2/day4/flex.dart';
 import 'package:flutter_week2/day4/wrap.dart';
+import 'package:flutter_week2/day5/DecoratedBox.dart';
+import 'package:flutter_week2/day5/SizeBox.dart';
+import 'package:flutter_week2/day5/padding.dart';
 
 void main() => runApp(MyApp());
 
@@ -150,6 +153,18 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text('align'),
               onPressed: ()=>AlignRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('padding'),
+              onPressed: ()=>PaddingRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('SizeBox'),
+              onPressed: ()=>SizeBoxRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('DecoratedBox'),
+              onPressed: ()=>DecoratedBoxRoute.launch(context),
             ),
           ],
         ),

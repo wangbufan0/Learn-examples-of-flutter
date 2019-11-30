@@ -32,10 +32,11 @@ class _ProgressRouteState extends State<ProgressRoute>
 
 
 
-   static void ff (SendPort sendPort) async{
+   static void ff (SendPort sendPort)async{
     double _progressValue=0;
     while(_progressValue<1.0){
-      await Future.delayed(Duration(milliseconds: 200));
+      await  Future.delayed(Duration(milliseconds: 1));
+      _progressValue+=0.05;
       sendPort.send(_progressValue);
     }
   }
@@ -101,7 +102,7 @@ class _ProgressRouteState extends State<ProgressRoute>
             padding: const EdgeInsets.only(top: 20),
           ),
           SizedBox(
-            height: 1,
+            height: 10,
             child: LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation(Colors.blue),

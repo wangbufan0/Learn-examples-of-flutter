@@ -2,7 +2,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
 
 class TextEditRoute extends StatefulWidget{
   TextEditRoute({Key key}):super(key:key);
@@ -34,14 +33,14 @@ class _TextEditRouteState extends State<TextEditRoute>{
       print(_unameController.text);
     });
 
-    focusNode1.addListener((){
-      if(focusNode1.hasFocus==false){
-        if(null==focusScopeNode)
-          focusScopeNode=FocusScope.of(context);
-        focusScopeNode.requestFocus(focusNode2);
-      }
-
-    });
+//    focusNode1.addListener((){
+//      if(focusNode1.hasFocus==false){
+//        if(null==focusScopeNode)
+//          focusScopeNode=FocusScope.of(context);
+//        focusScopeNode.requestFocus(focusNode2);
+//      }
+//
+//    });
   }
 
   @override
@@ -62,7 +61,11 @@ class _TextEditRouteState extends State<TextEditRoute>{
               prefixIcon: Icon(Icons.person),
               border: InputBorder.none
             ),
-
+            onEditingComplete: (){
+              if(null==focusScopeNode)
+                focusScopeNode=FocusScope.of(context);
+              focusScopeNode.requestFocus(focusNode2);
+            },
           ),
           TextField(
             obscureText: true,
@@ -73,6 +76,9 @@ class _TextEditRouteState extends State<TextEditRoute>{
                 prefixIcon: Icon(Icons.lock),
                 border: InputBorder.none
             ),
+            onSubmitted: (value){
+
+            },
           ),
           Builder(builder:(context){
             return Column(
