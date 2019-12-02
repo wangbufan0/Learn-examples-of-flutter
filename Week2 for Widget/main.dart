@@ -8,12 +8,12 @@ import 'package:flutter_week2/day2/text_edit.dart';
 import 'package:flutter_week2/day3/column.dart';
 import 'package:flutter_week2/day3/progress.dart';
 import 'package:flutter_week2/day3/row.dart';
-import 'package:flutter_week2/day4/Stack.dart';
+import 'package:flutter_week2/day4/stack.dart';
 import 'package:flutter_week2/day4/align.dart';
 import 'package:flutter_week2/day4/flex.dart';
 import 'package:flutter_week2/day4/wrap.dart';
-import 'package:flutter_week2/day5/DecoratedBox.dart';
-import 'package:flutter_week2/day5/SizeBox.dart';
+import 'package:flutter_week2/day5/decorated_box.dart';
+import 'package:flutter_week2/day5/size_box.dart';
 import 'package:flutter_week2/day5/padding.dart';
 
 void main() => runApp(MyApp());

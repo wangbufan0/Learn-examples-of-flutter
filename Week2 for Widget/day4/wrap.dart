@@ -19,13 +19,15 @@ class WrapRoute extends StatelessWidget{
         title: Text('Wrap Route'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Wrap(
             direction: Axis.horizontal,
             spacing: 8,
             runSpacing: 4,
+            textDirection: TextDirection.rtl,
             alignment: WrapAlignment.center,
-
             children: <Widget>[
               new Chip(
                 avatar: new CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
