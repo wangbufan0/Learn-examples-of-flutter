@@ -1,30 +1,21 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CheckRoute extends StatefulWidget{
-
-  static void launch(BuildContext context){
-    Navigator.push(context,
-        MaterialPageRoute(
-            builder: (context)=>CheckRoute()
-        )
-    );
+class CheckRoute extends StatefulWidget {
+  static void launch(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CheckRoute()));
   }
+
   @override
   State createState() {
     return _CheckRouteState();
   }
 }
 
-class _CheckRouteState extends State<CheckRoute>{
-
-
-
-  bool _switchSelected=true;
-  bool _checkboxSelected=true;
+class _CheckRouteState extends State<CheckRoute> {
+  bool _switchSelected = true;
+  bool _checkboxSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +27,21 @@ class _CheckRouteState extends State<CheckRoute>{
         children: <Widget>[
           Switch(
             value: _switchSelected,
-            onChanged: (value){
+            onChanged: (value) {
               setState(() {
-                _switchSelected=value;
+                _switchSelected = value;
               });
             },
           ),
           Checkbox(
             value: _checkboxSelected,
             activeColor: Colors.red,
-            onChanged: (value){
+            onChanged: (value) {
               setState(() {
-                _checkboxSelected=value;
+                _checkboxSelected = value;
               });
             },
           ),
-
         ],
       ),
     );

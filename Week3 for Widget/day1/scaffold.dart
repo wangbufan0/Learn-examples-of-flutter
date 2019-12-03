@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_week2/week3/day1/my_app_bar.dart';
 import 'package:flutter_week2/week3/day1/my_drawer.dart';
+import 'package:flutter_week2/week3/day2/bottom_app_bar.dart';
+import 'package:flutter_week2/week3/day2/bottom_navigation_bar.dart';
 
 class ScaffoldRoute extends StatefulWidget {
   static void launch(BuildContext context) {
@@ -18,6 +20,7 @@ class ScaffoldRoute extends StatefulWidget {
 class ScaffoldRouteState extends State<ScaffoldRoute>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+
 
   List tabs = ['新闻', "历史", "图片"];
 
@@ -40,12 +43,19 @@ class ScaffoldRouteState extends State<ScaffoldRoute>
           children: tabs.map((e) {
             return Container(
               alignment: Alignment.center,
-              child: Text(
-                e,
+              child: Text(e,
                 textScaleFactor: 5,
               ),
             );
-          }).toList()),
+          }).toList()
+      ),
+//      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: MyBottomAppBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
+      ),
     );
   }
 }

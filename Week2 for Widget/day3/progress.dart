@@ -1,20 +1,13 @@
-
-
-
-import 'dart:isolate' ;
+import 'dart:io';
+import 'dart:isolate';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ProgressRoute extends StatefulWidget{
-
-  static void launch(BuildContext context){
+class ProgressRoute extends StatefulWidget {
+  static void launch(BuildContext context) {
     Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context)=>ProgressRoute()
-      )
-    );
+        context, MaterialPageRoute(builder: (context) => ProgressRoute()));
   }
 
   @override
@@ -24,36 +17,32 @@ class ProgressRoute extends StatefulWidget{
 }
 
 class _ProgressRouteState extends State<ProgressRoute>
-  with SingleTickerProviderStateMixin{
-
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
-  double _progressValue=0;
-  ReceivePort receivePort=ReceivePort();
+  double _progressValue = 0;
+  ReceivePort receivePort = ReceivePort();
 
-
-
-   static void ff (SendPort sendPort)async{
-    double _progressValue=0;
-    while(_progressValue<1.0){
-      await  Future.delayed(Duration(milliseconds: 1));
-      _progressValue+=0.05;
+  static void ff(SendPort sendPort) async {
+    double _progressValue = 0;
+    while (_progressValue < 1.0) {
+      sleep(Duration(milliseconds: 1000));
+      _progressValue += 0.05;
       sendPort.send(_progressValue);
     }
   }
 
   @override
   void initState() {
-    _animationController=
-        AnimationController(vsync: this,duration: Duration(seconds: 3));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
     _animationController.forward();
-    _animationController.addListener((){
-      setState(() {
-      });
+    _animationController.addListener(() {
+      setState(() {});
     });
 
-    receivePort.listen((value){
+    receivePort.listen((value) {
       setState(() {
-        _progressValue=value;
+        _progressValue = value;
       });
     });
 
@@ -109,7 +98,6 @@ class _ProgressRouteState extends State<ProgressRoute>
               value: _progressValue,
             ),
           ),
-
           SizedBox(
             height: 50,
             width: 100,
