@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_week2/week3/day2/list_view/list_view_builder.dart';
+import 'package:flutter_week2/week3/day3/infinite_list_view.dart';
+import 'package:flutter_week2/week3/day3/list_view_separated.dart';
 
 import 'list_view_children.dart';
 
@@ -39,6 +41,14 @@ class _ListViewHomeRouteState extends State<ListViewHomeRoute> {
               RaisedButton(
                 child: Text('ListView-builder'),
                 onPressed: ()=>ListViewBuildRoute.launch(context),
+              ),
+              RaisedButton(
+                child: Text('ListView-separated'),
+                onPressed: ()=>ListViewSeparatedRoute.launch(context),
+              ),
+              RaisedButton(
+                child: Text('Infinite-ListView'),
+                onPressed: ()=>InfiniteListView.launch(context),
               ),
             ],
           ),
