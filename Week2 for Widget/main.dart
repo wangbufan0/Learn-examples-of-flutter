@@ -21,6 +21,18 @@ import 'package:flutter_week2/week3/day1/transform.dart';
 import 'package:flutter_week2/week3/day2/clip.dart';
 import 'package:flutter_week2/week3/day2/list_view/list_view_home.dart';
 import 'package:flutter_week2/week3/day2/single_child_scroll_view.dart';
+import 'package:flutter_week2/week3/day3/grid_view.dart';
+import 'package:flutter_week2/week3/day3/infinite_grid_view.dart';
+import 'package:flutter_week2/week3/day4/custom_scroll_view.dart';
+import 'package:flutter_week2/week3/day4/scroll_notification.dart';
+import 'package:flutter_week2/week3/day4/sroll_controller.dart';
+import 'package:flutter_week2/week3/day4/will_pop_scope.dart';
+import 'package:flutter_week2/week3/day5/dialog.dart';
+import 'package:flutter_week2/week3/day5/future_builder.dart';
+import 'package:flutter_week2/week3/day5/inherited_widght.dart';
+import 'package:flutter_week2/week3/day5/provider/demo.dart';
+import 'package:flutter_week2/week3/day5/stream_builder.dart';
+import 'package:flutter_week2/week3/day5/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -194,6 +206,54 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text('ListView'),
               onPressed: () => ListViewHomeRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('GridView'),
+              onPressed: () => GridViewRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('InfiniteGridView'),
+              onPressed: () => InfiniteGridView.launch(context),
+            ),
+            RaisedButton(
+              child: Text('CustomScrollView'),
+              onPressed: () => CustomScrollViewRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('SrollController'),
+              onPressed: () => SrollControllerRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('SrollNotification'),
+              onPressed: () => ScrollNotificationTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('WillPopScope'),
+              onPressed: () => WillPopScopeTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('InheritedWidget'),
+              onPressed: () => InheritedWidgetTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Provider'),
+              onPressed: () => ProviderRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Theme'),
+              onPressed: () => ThemeTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('FutureBuilder'),
+              onPressed: () => FutureBuilderTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('StreamBuilder'),
+              onPressed: () => StreamBuilderTestRoute.launch(context),
+            ),
+            RaisedButton(
+              child: Text('Dialog'),
+              onPressed: () => DialogTestRoute.launch(context),
             ),
           ],
         ),
