@@ -52,7 +52,7 @@ class RowColumnBloc extends Bloc<RowColumnEvent, RowColumnState> {
         return MainAxisAlignment.spaceBetween;
       case MainAlignValues.space_evenly: //space_around
         return MainAxisAlignment.spaceEvenly;
-      case MainAlignValues.space_evenly: //space_evenly
+      case MainAlignValues.space_around: //space_evenly
         return MainAxisAlignment.spaceAround;
       default:
         return MainAxisAlignment.start;
@@ -69,6 +69,8 @@ class RowColumnBloc extends Bloc<RowColumnEvent, RowColumnState> {
         return  CrossAxisAlignment.center;
       case CrossAlignValues.stretch: //stretch
         return  CrossAxisAlignment.stretch;
+      case CrossAlignValues.baseline:
+        return  CrossAxisAlignment.baseline;
       default: ////start
         return  CrossAxisAlignment.start;
     }

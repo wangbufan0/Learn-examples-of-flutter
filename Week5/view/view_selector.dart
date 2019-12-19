@@ -45,34 +45,36 @@ class ViewSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<ViewSelectBloc>(
       create: (context)=>ViewSelectBloc(),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Divider(color: mainColor,),
-          Center(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: mainColor,
-                fontSize: TEXT_NORMAL_SIZE,
+      child: Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Divider(color: mainColor,),
+            Center(
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: mainColor,
+                  fontSize: TEXT_NORMAL_SIZE,
+                ),
               ),
             ),
-          ),
-          BlocBuilder<ViewSelectBloc,int>(
-            builder: (context,state){
-              return DropdownButton(
-                value: state,
-                items: _items(values),
-                onChanged: (value){
-                  BlocProvider.of<ViewSelectBloc>(context).add(value);
-                  onClick(value);
-                },
-              );
-            },
-          ),
+            BlocBuilder<ViewSelectBloc,int>(
+              builder: (context,state){
+                return DropdownButton(
+                  value: state,
+                  items: _items(values),
+                  onChanged: (value){
+                    BlocProvider.of<ViewSelectBloc>(context).add(value);
+                    onClick(value);
+                  },
+                );
+              },
+            ),
 
-        ],
+          ],
+        ),
       ),
     );
   }

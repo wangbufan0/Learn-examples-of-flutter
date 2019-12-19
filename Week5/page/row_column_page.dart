@@ -14,28 +14,21 @@ import 'package:flutter_layouts_exampls/view/row_column_selector.dart';
 class RowColumnPage extends StatelessWidget {
   RowColumnPage({
     Key key,
-    @required this.themeColor,
-  })  : assert(themeColor != null),
-        super(key: key);
-
-  final Color themeColor;
+  }) : super(key: key);
 
   Widget _body(RowColumnState state) {
     List<Widget> children = [
       Icon(
         Icons.add_a_photo,
         size: 50,
-        color: themeColor,
       ),
       Icon(
         Icons.add_a_photo,
         size: 100,
-        color: themeColor,
       ),
       Icon(
         Icons.add_a_photo,
         size: 50,
-        color: themeColor,
       )
     ];
 
@@ -44,12 +37,14 @@ class RowColumnPage extends StatelessWidget {
             mainAxisSize: state.size,
             mainAxisAlignment: state.mainAlign,
             crossAxisAlignment: state.crossAlign,
+            textBaseline: TextBaseline.alphabetic,
             children: children,
           )
         : Row(
             mainAxisSize: state.size,
             mainAxisAlignment: state.mainAlign,
             crossAxisAlignment: state.crossAlign,
+            textBaseline: TextBaseline.alphabetic,
             children: children,
           );
   }
@@ -60,17 +55,15 @@ class RowColumnPage extends StatelessWidget {
       create: (context) => RowColumnBloc(),
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).iconTheme.color,
           title: Text(BOTTOM_TITLES[ItemType.row_column.index]),
-          backgroundColor: themeColor,
           bottom: PreferredSize(
             preferredSize: Size(0, SELECTOR_TWO_HEIGHT),
-            child: RowColumnSelector(
-              mainColor: Colors.white,
-            ),
+            child: RowColumnSelector(),
           ),
         ),
         body: Container(
-          color: Colors.black26,
+          color: Theme.of(context).primaryColor,
           child: BlocBuilder<RowColumnBloc, RowColumnState>(
             builder: (context, state) {
               return _body(state);

@@ -6,15 +6,20 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_layouts_exampls/constant/main_const.dart';
+import 'package:flutter_layouts_exampls/page/expand_page.dart';
 import 'package:flutter_layouts_exampls/page/row_column_page.dart';
+import 'package:flutter_layouts_exampls/page/stack_page.dart';
+
+import 'bloc/theme_color_bloc.dart';
 
 class MyMain extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => MyMainState();
 }
 
-const ITEM_COUNT = 2;
+const ITEM_COUNT = 4;
 
 class MyMainState extends State<MyMain> {
   var curGroup = GroupType.simple;
@@ -22,6 +27,7 @@ class MyMainState extends State<MyMain> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey,
       body: _itemBody(curItemType),
@@ -33,7 +39,6 @@ class MyMainState extends State<MyMain> {
       floatingActionButton: FloatingActionButton(
         child: Icon(BAR_ICONS[curGroup.index]),
         onPressed: _changeGroup,
-        backgroundColor: BAR_BACK_COLORS[curGroup.index],
       ),
     );
   }
@@ -41,9 +46,13 @@ class MyMainState extends State<MyMain> {
   Widget _itemBody(type) {
     switch (type) {
       case ItemType.row_column:
-        return RowColumnPage(themeColor: BAR_BACK_COLORS[curGroup.index],);
+        return RowColumnPage();
+      case ItemType.stack:
+        return StackPage();
+      case ItemType.expanded:
+        return ExpandPage();
       default:
-        return RowColumnPage(themeColor: BAR_BACK_COLORS[curGroup.index],);
+        return RowColumnPage();
     }
   }
 
@@ -51,11 +60,16 @@ class MyMainState extends State<MyMain> {
     return curGroup == GroupType.simple
         ? [
             _bottomItem(ItemType.row_column),
-            _bottomItem(ItemType.row_column)
+            _bottomItem(ItemType.stack),
+            _bottomItem(ItemType.expanded),
+            _bottomItem(ItemType.padding)
           ]
         : [
-            _bottomItem(ItemType.row_column),
-            _bottomItem(ItemType.row_column)
+            _bottomItem(ItemType.page_view),
+            _bottomItem(ItemType.list),
+            _bottomItem(ItemType.sliver),
+            _bottomItem(ItemType.hero),
+            _bottomItem(ItemType.nested),
           ];
   }
 
@@ -68,11 +82,12 @@ class MyMainState extends State<MyMain> {
         title: Text(
           BOTTOM_TITLES[type.index],
           style: TextStyle(color: _itemColor(type)),
-        ));
+        )
+    );
   }
 
   Color _itemColor(type) {
-    return curItemType == type ? BAR_BACK_COLORS[curGroup.index] : Colors.grey;
+    return curItemType == type ? Theme.of(context).iconTheme.color : Colors.grey;
   }
 
   void _selectItem(index) {
@@ -83,6 +98,7 @@ class MyMainState extends State<MyMain> {
   }
 
   void _changeGroup() {
+    BlocProvider.of<ThemeColorBloc>(context).add(ThemeColorChangeEvent());
     setState(() {
       if (curGroup == GroupType.simple) {
         curGroup = GroupType.scroll;

@@ -35,15 +35,13 @@ const CROSS_ALIGN_VALUES = [
   'end',
   'center',
   'stretch',
+  'baseline'
 ];
 
 class RowColumnSelector extends StatelessWidget {
   RowColumnSelector({
     Key key,
-    this.mainColor = Colors.black26,
   }) : super(key: key);
-
-  final Color mainColor;
 
   RowColumnBloc bloc;
 

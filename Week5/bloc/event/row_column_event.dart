@@ -28,6 +28,7 @@ enum CrossAlignValues {
   end,
   center,
   stretch,
+  baseline,
 }
 
 abstract class RowColumnEvent extends Equatable {
