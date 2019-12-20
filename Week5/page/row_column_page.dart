@@ -63,7 +63,7 @@ class RowColumnPage extends StatelessWidget {
           ),
         ),
         body: Container(
-          color: Theme.of(context).primaryColor,
+          color: Colors.grey[350],
           child: BlocBuilder<RowColumnBloc, RowColumnState>(
             builder: (context, state) {
               return _body(state);

@@ -121,7 +121,7 @@ class StackPage extends StatelessWidget {
         ),
         body: Container(
           padding: EdgeInsets.all(11),
-          color: Theme.of(context).primaryColor,
+          color: Colors.grey[350],
           child: BlocBuilder<StackBloc, StackState>(
             builder: (context, state) {
               return _body(state);

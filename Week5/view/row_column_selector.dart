@@ -38,6 +38,7 @@ const CROSS_ALIGN_VALUES = [
   'baseline'
 ];
 
+// ignore: must_be_immutable
 class RowColumnSelector extends StatelessWidget {
   RowColumnSelector({
     Key key,

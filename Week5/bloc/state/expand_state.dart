@@ -17,7 +17,7 @@ class ExpandState extends Equatable {
       {@required this.oneFlex, @required this.twoFlex, @required this.type});
 
   factory ExpandState.initial() {
-    return ExpandState(oneFlex: 1, twoFlex: 1);
+    return ExpandState(oneFlex: 0, twoFlex: 0,type:ArrangeTypeValues.Row);
   }
 
   ExpandState copyWith({int oneFlex, int twoFlex, ArrangeTypeValues type}) {
@@ -29,5 +29,5 @@ class ExpandState extends Equatable {
   }
 
   @override
-  List<Object> get props => [oneFlex, twoFlex];
+  List<Object> get props => [oneFlex, twoFlex,type];
 }
