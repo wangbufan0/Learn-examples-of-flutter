@@ -9,9 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_layouts_exampls/constant/main_const.dart';
 import 'package:flutter_layouts_exampls/page/expand_page.dart';
+import 'package:flutter_layouts_exampls/page/list_page.dart';
 import 'package:flutter_layouts_exampls/page/padding_page.dart';
 import 'package:flutter_layouts_exampls/page/page_view_page.dart';
 import 'package:flutter_layouts_exampls/page/row_column_page.dart';
+import 'package:flutter_layouts_exampls/page/sliver_page.dart';
 import 'package:flutter_layouts_exampls/page/stack_page.dart';
 
 import 'bloc/theme_color_bloc.dart';
@@ -57,6 +59,11 @@ class MyMainState extends State<MyMain> {
         return PaddingPage();
       case ItemType.page_view:
         return PageViewPage();
+      case ItemType.list:
+        return ListPage();
+      case ItemType.sliver:
+        return SliverPage();
+
       default:
         return RowColumnPage();
     }
