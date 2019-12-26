@@ -6,6 +6,7 @@
 
 library constant;
 
-export 'main_const.dart';
-export 'size_const.dart';
 
+export './main_const.dart';
+export './size_const.dart';
+export './move_data.dart';

@@ -9,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_layouts_exampls/constant/main_const.dart';
 import 'package:flutter_layouts_exampls/page/expand_page.dart';
+import 'package:flutter_layouts_exampls/page/hero_page.dart';
 import 'package:flutter_layouts_exampls/page/list_page.dart';
+import 'package:flutter_layouts_exampls/page/move/grid_view_page.dart';
+import 'package:flutter_layouts_exampls/page/nested_page.dart';
 import 'package:flutter_layouts_exampls/page/padding_page.dart';
 import 'package:flutter_layouts_exampls/page/page_view_page.dart';
 import 'package:flutter_layouts_exampls/page/row_column_page.dart';
@@ -23,7 +26,7 @@ class MyMain extends StatefulWidget {
   State<StatefulWidget> createState() => MyMainState();
 }
 
-const ITEM_COUNT = 4;
+const ITEM_COUNT = 5;
 
 class MyMainState extends State<MyMain> {
   var curGroup = GroupType.simple;
@@ -57,13 +60,18 @@ class MyMainState extends State<MyMain> {
         return ExpandPage();
       case ItemType.padding:
         return PaddingPage();
+      case ItemType.move:
+        return GridViewPage();
       case ItemType.page_view:
         return PageViewPage();
       case ItemType.list:
         return ListPage();
       case ItemType.sliver:
         return SliverPage();
-
+      case ItemType.hero:
+        return HeroPage();
+      case ItemType.nested:
+        return NestedPage();
       default:
         return RowColumnPage();
     }
@@ -75,7 +83,8 @@ class MyMainState extends State<MyMain> {
             _bottomItem(ItemType.row_column),
             _bottomItem(ItemType.stack),
             _bottomItem(ItemType.expanded),
-            _bottomItem(ItemType.padding)
+            _bottomItem(ItemType.padding),
+            _bottomItem(ItemType.move),
           ]
         : [
             _bottomItem(ItemType.page_view),

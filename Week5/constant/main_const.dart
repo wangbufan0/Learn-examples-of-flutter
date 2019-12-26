@@ -11,6 +11,7 @@ const BOTTOM_TITLES = [
   'Stack',
   'Expanded',
   'Padding',
+  'GridView',
 
   //The second items.
   'Page View',
@@ -25,7 +26,7 @@ const BOTTOM_ICONS = [
   Icons.layers,
   Icons.line_weight,
   Icons.format_line_spacing,
-
+  Icons.movie,
   // The second items.
   Icons.view_week,
   Icons.format_list_bulleted,
@@ -47,7 +48,7 @@ enum ItemType {
   stack,
   expanded,
   padding,
-
+  move,
   //The second items.
   page_view,
   list,
@@ -66,16 +67,17 @@ ItemType convertItemType(index) {
       return ItemType.expanded;
     case 3:
       return ItemType.padding;
-
     case 4:
-      return ItemType.page_view;
+      return ItemType.move;
     case 5:
-      return ItemType.list;
+      return ItemType.page_view;
     case 6:
-      return ItemType.sliver;
+      return ItemType.list;
     case 7:
-      return ItemType.hero;
+      return ItemType.sliver;
     case 8:
+      return ItemType.hero;
+    case 9:
       return ItemType.nested;
     default:
       return ItemType.row_column;
