@@ -1,1 +1,1 @@
-![](.\screenshots\hero.jpg)
+![](..\screenshots\hero.jpg)
