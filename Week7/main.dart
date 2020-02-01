@@ -1,10 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/translation/dio/translation_api_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
-import 'package:crypto/crypto.dart';
-
+import 'translation/bloc/translation_bloc.dart';
 import 'translation/translation_page.dart';
 
 void main() => runApp(MyApp());
@@ -17,7 +14,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    home: BlocProvider<TranslationBloc>(
+      create: (context) => TranslationBloc(),
+      child: TranslationPage(),
+    ),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -52,8 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {});
   }
 
-  _getTranslation() async {
-  }
+  _getTranslation() async {}
 
   @override
   Widget build(BuildContext context) {

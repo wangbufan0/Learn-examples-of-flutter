@@ -78,15 +78,18 @@ abstract class BasePage<T extends BasePage<T, B>, B extends Bloc>
 
   @override
   State createState() => _BasePageState<T, B>();
+
+  TickerProvider vsync;
 }
 
 class _BasePageState<T extends BasePage<T, B>, B extends Bloc>
-    extends State<T> {
+    extends State<T> with SingleTickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
     widget.bloc = BlocProvider.of<B>(context);
     widget.onCreate(context);
+    widget.vsync=this;
   }
 
   @override
