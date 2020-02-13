@@ -1,16 +1,3 @@
----
-title: Flutter学习(六)-动画
-date: 2020-2-13 15:33
-tags:
-  - dart
-  - widget
-  - flutter
-  - animate
-categories:
-  - flutter
-abstract: Flutter动画基础的一些记录和理解。
----
-
 
 
 flutter动画的原理就是在一段时间内，快速的多次改变UI外观，就会看起来是一个连续的动画。
