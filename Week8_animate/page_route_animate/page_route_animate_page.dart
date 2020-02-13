@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_app/page_route_animate/fade_route.dart';
+
+import 'fade_route.dart';
 
 ///
 /// author：wangbufan

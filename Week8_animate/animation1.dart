@@ -6,18 +6,19 @@ import 'package:flutter/material.dart';
 /// email: wangbufan00@gmail.com
 ///
 
-class AnimatedLog extends AnimatedWidget {
-  AnimatedLog({Key key, Animation<double> animation})
+class SizeAnimated extends AnimatedWidget {
+  SizeAnimated({Key key, Animation<double> animation,this.child})
       : super(key: key, listenable: animation);
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable;
     return Center(
       child: Container(
-        color: Colors.grey,
         width: animation.value,
-        child: Image.asset('images/girl.jpg'),
+        child: child,
       ),
     );
   }
@@ -48,7 +49,7 @@ class _AnimationPageState extends State<Animation1Page>
     controller =
         AnimationController(duration: Duration(seconds: 1), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
-    animation = Tween(begin: 0.0, end: 300.0).animate(controller)
+    animation = Tween(begin: 0.0, end: 300.0).animate(animation)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           controller.reverse();
@@ -68,20 +69,21 @@ class _AnimationPageState extends State<Animation1Page>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      body: AnimatedLog(
-//        animation: animation,
-//      ),
-      body: AnimatedBuilder(
-          animation: animation,
-          builder: (context, child) {
-            return Center(
-              child: Container(
-                color: Colors.grey,
-                width: animation.value,
-                child: Image.asset('images/girl.jpg'),
-              ),
-            );
-          }),
+      body: SizeAnimated(
+        animation: animation,
+        child: Image.asset('images/girl.jpg'),
+      ),
+//      body: AnimatedBuilder(
+//          animation: animation,
+//          builder: (context, child) {
+//            return Center(
+//              child: Container(
+//                color: Colors.grey,
+//                width: animation.value,
+//                child: Image.asset('images/girl.jpg'),
+//              ),
+//            );
+//          }),
     );
   }
 }
